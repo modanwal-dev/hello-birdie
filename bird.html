@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Birdie</title>
+</head>
+<body style="margin:0; background-color:black; text-align:center;">
+  <img src="bird.webp" id="bird" style="width:100%; max-width:400px;" />
+  <audio id="birdSound" src="bird.mp3"></audio>
+
+  <script>
+    document.getElementById("bird").addEventListener("click", function() {
+      document.getElementById("birdSound").play();
+    });
+  </script>
+</body>
+</html>
