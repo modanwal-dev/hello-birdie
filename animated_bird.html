@@ -3,13 +3,29 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { text-align: center; background: #f0f8ff; }
-    img { width: 80%; max-width: 300px; cursor: pointer; }
-    #message { font-size: 20px; margin-top: 10px; }
+    body {
+      text-align: center;
+      background-color: #f0f8ff;
+      font-family: sans-serif;
+    }
+    img {
+      width: 80%;
+      max-width: 300px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    img:active {
+      transform: scale(1.1);
+    }
+    #message {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #333;
+    }
   </style>
 </head>
 <body>
-  <img src="birdie_animated.webp" onclick="tapBird()" />
+  <img src="bird.webp" onclick="tapBird()" alt="Birdie" />
   <div id="message">Tap the bird to mimic!</div>
 
   <script>
