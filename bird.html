@@ -15,32 +15,35 @@
     #bird {
       width: 100%;
       max-width: 400px;
+      margin: 40px auto;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
 
     #bird:active {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
-    #status {
+    #message {
+      font-size: 18px;
       margin-top: 20px;
-      font-size: 1.5em;
-      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <img src="bird.webp" id="bird" alt="Animated Bird" />
-  <div id="status">Tap the bird to mimic your voice!</div>
+  <h2>Hello Birdie</h2>
+  <img id="bird" src="bird.webp" alt="Bird" onclick="startRecording()">
+  <audio id="chirp" src="bird.mp3"></audio>
+  <div id="message">Tap the bird to mimic your voice!</div>
 
   <script>
-    const bird = document.getElementById("bird");
-    bird.addEventListener("click", () => {
+    function startRecording() {
+      document.getElementById("message").innerText = "Recording started...";
+      document.getElementById("chirp").play();
       if (window.AppInventor) {
         window.AppInventor.setWebViewString("startRecording");
       }
-    });
+    }
   </script>
 </body>
 </html>
