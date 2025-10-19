@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { text-align: center; background: #f0f8ff; }
+    img { width: 80%; max-width: 300px; cursor: pointer; }
+    #message { font-size: 20px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <img src="birdie_animated.webp" onclick="tapBird()" />
+  <div id="message">Tap the bird to mimic!</div>
+
+  <script>
+    function tapBird() {
+      document.getElementById("message").innerText = "Birdie heard you!";
+      if (window.AppInventor) {
+        window.AppInventor.setWebViewString("tap");
+      }
+    }
+  </script>
+</body>
+</html>
