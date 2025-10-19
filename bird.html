@@ -14,7 +14,7 @@
 
     #bird {
       width: 100%;
-      max-width: 400px;
+      max-width: 300px;
       margin: 40px auto;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -22,11 +22,21 @@
 
     #bird:active {
       transform: scale(1.1);
+      box-shadow: 0 0 20px yellow;
     }
 
     #message {
       font-size: 18px;
       margin-top: 20px;
+      padding: 10px;
+      background-color: #222;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: gray;
     }
   </style>
 </head>
@@ -34,11 +44,13 @@
   <h2>Hello Birdie</h2>
   <img id="bird" src="bird.webp" alt="Bird" onclick="startRecording()">
   <audio id="chirp" src="bird.mp3"></audio>
-  <div id="message">Tap the bird to mimic your voice!</div>
+  <div id="message">🎤 Tap the bird to mimic your voice!</div>
+
+  <footer>Made with 💖 by Angel</footer>
 
   <script>
     function startRecording() {
-      document.getElementById("message").innerText = "Recording started...";
+      document.getElementById("message").innerText = "🎙️ Birdie is listening... Speak now!";
       document.getElementById("chirp").play();
       if (window.AppInventor) {
         window.AppInventor.setWebViewString("startRecording");
