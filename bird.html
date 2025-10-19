@@ -23,28 +23,29 @@
       transform: scale(1.05);
     }
 
-    #counter {
+    #fallback {
       margin-top: 20px;
-      font-size: 1.5em;
-      font-weight: bold;
+      font-size: 1.2em;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
   <img src="bird.webp" id="bird" alt="Animated Bird" />
   <audio id="birdSound" src="bird.mp3"></audio>
-  <div id="counter">Taps: 0</div>
+  <div id="fallback">Tap the bird to hear it chirp!</div>
 
   <script>
     let count = 0;
     const bird = document.getElementById("bird");
     const sound = document.getElementById("birdSound");
-    const counter = document.getElementById("counter");
 
     bird.addEventListener("click", () => {
       sound.play();
       count++;
-      counter.textContent = "Taps: " + count;
+      if (window.AppInventor) {
+        window.AppInventor.setWebViewString("Taps: " + count);
+      }
     });
   </script>
 </body>
