@@ -3,14 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Hello Birdie</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    #bird {
+      width: 100%;
+      max-width: 400px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #bird:active {
+      transform: scale(1.05);
+    }
+
+    #counter {
+      margin-top: 20px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body style="margin:0; background-color:black; text-align:center;">
-  <img src="bird.webp" id="bird" style="width:100%; max-width:400px;" />
+<body>
+  <img src="bird.webp" id="bird" alt="Animated Bird" />
   <audio id="birdSound" src="bird.mp3"></audio>
+  <div id="counter">Taps: 0</div>
 
   <script>
-    document.getElementById("bird").addEventListener("click", function() {
-      document.getElementById("birdSound").play();
+    let count = 0;
+    const bird = document.getElementById("bird");
+    const sound = document.getElementById("birdSound");
+    const counter = document.getElementById("counter");
+
+    bird.addEventListener("click", () => {
+      sound.play();
+      count++;
+      counter.textContent = "Taps: " + count;
     });
   </script>
 </body>
